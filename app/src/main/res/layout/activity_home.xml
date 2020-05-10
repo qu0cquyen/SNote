@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Home">
+
+    <FrameLayout
+        android:id="@+id/frame_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/navigation_view" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/navigation_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:elevation="0dp"
+        app:labelVisibilityMode="labeled"
+        app:itemBackground="?android:attr/windowBackground"
+        app:menu="@menu/bottom_nav_menu"
+        app:itemTextColor="@android:color/black"
+        app:itemIconTint="@android:color/black"/>
+
+    <!--
+        The idea is to have ImageView to be placed on top of the middle icon
+    -->
+
+    <ImageView
+        android:id="@+id/nav_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/ic_add"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"/>
+
+    <!-- Notes
+        Bottom Navigation View:
+            app:labelVisibilityMode="labeled" will show all the Titles
+                In default the title will only show when the icon is clicked
+
+            app:elevation: make the bar appears under the other components
+    -->
+</RelativeLayout>
