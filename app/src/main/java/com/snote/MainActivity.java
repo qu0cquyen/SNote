@@ -34,15 +34,22 @@ public class MainActivity extends AppCompatActivity {
         mBtnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String userName = mUserName.getText().toString();
+                Intent homeIntent = new Intent(MainActivity.this, Home.class);
+                startActivity(homeIntent);
+                /*String userName = mUserName.getText().toString();
                 String password = mPassword.getText().toString();
-                if(mMainActivityViewModels.signIn(userName, password) == null){
+
+                if(userName.length() == 0 && password.length() == 0){
                     Toast.makeText(getApplicationContext(), "User name and Password are incorrect", Toast.LENGTH_LONG).show();
                 } else {
-                    Intent homeIntent = new Intent(MainActivity.this, Home.class);
-                    startActivity(homeIntent);
-                }
-
+                    if(mMainActivityViewModels.signIn(userName, password) == null){
+                        Toast.makeText(getApplicationContext(), "User name and Password are incorrect", Toast.LENGTH_LONG).show();
+                    }
+                    else {
+                        Intent homeIntent = new Intent(MainActivity.this, Home.class);
+                        startActivity(homeIntent);
+                    }
+                }*/
             }
         });
     }

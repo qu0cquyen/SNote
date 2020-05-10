@@ -40,6 +40,10 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
 
 
+    // Drawer Navigation
+    implementation 'com.google.android.material:material:1.1.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
     // Bottom Navigation
     implementation 'com.google.android.material:material:1.1.0'
 

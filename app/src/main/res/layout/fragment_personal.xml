@@ -1,15 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/personal_fragment"
+    android:background="#DEDEDE"
     tools:context=".Fragments.PersonalFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="this is from Personal Fragment" />
 
-</FrameLayout>
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/personal_drawerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/personal_navView"
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            app:menu="@menu/personal_drawer">
+
+        </com.google.android.material.navigation.NavigationView>
+        <RelativeLayout
+            android:id="@+id/personal_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:id="@+id/banner_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/banner_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:padding="10dp"
+                    android:scaleType="fitXY"/>
+
+                <ImageView
+                    android:id="@+id/banner_burgerMenu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:padding="10dp" />
+
+            </RelativeLayout>
+
+           <androidx.constraintlayout.widget.ConstraintLayout
+               android:id="@+id/info_container"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_below="@id/banner_container"
+               android:layout_marginTop="20dp">
+
+               <ImageView
+                   android:id="@+id/personal_image"
+                   android:layout_width="100dp"
+                   android:layout_height="70dp"
+                   app:layout_constraintLeft_toLeftOf="parent"
+                   app:layout_constraintTop_toTopOf="parent"
+                   app:layout_constraintBottom_toBottomOf="parent"/>
+
+               <TextView
+                   android:id="@+id/personal_txtUserName"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Name"
+                   android:layout_marginStart="30dp"
+                   app:layout_constraintLeft_toRightOf="@id/personal_image"
+                   app:layout_constraintTop_toTopOf="parent"
+                   app:layout_constraintBottom_toBottomOf="parent"
+                   app:layout_constraintVertical_bias="0.1"/>
+
+               <TextView
+                   android:id="@+id/personal_txtSchool"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="School"
+                   android:layout_marginStart="30dp"
+                   app:layout_constraintLeft_toRightOf="@id/personal_image"
+                   app:layout_constraintTop_toBottomOf="@id/personal_txtUserName"
+                   app:layout_constraintBottom_toBottomOf="parent"/>
+
+               <TextView
+                   android:id="@+id/personal_txtDoB"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="DoB"
+                   android:layout_marginStart="100dp"
+                   app:layout_constraintLeft_toRightOf="@id/personal_txtUserName"
+                   app:layout_constraintTop_toTopOf="parent"
+                   app:layout_constraintBottom_toBottomOf="parent"
+                   app:layout_constraintVertical_bias="0.1"/>
+
+           </androidx.constraintlayout.widget.ConstraintLayout>
+            <RelativeLayout
+                android:id="@+id/features_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/info_container"
+                android:layout_marginTop="20dp">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/features_recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </RelativeLayout>
+        </RelativeLayout>
+    </androidx.drawerlayout.widget.DrawerLayout>
+</RelativeLayout>

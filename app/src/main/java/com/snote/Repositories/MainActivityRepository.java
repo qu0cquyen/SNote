@@ -13,13 +13,15 @@ import androidx.lifecycle.MutableLiveData;
 
 public class MainActivityRepository {
     private static MainActivityRepository instance;
-    private String userID;
+    private String userID = null;
     private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
 
     public static MainActivityRepository getInstance(){
         if(instance == null){
             instance = new MainActivityRepository();
         }
+
+
         return instance;
     }
 
@@ -31,24 +33,15 @@ public class MainActivityRepository {
                         if(task.isSuccessful()){
                             System.out.println("True");
                             FirebaseUser user = firebaseAuth.getCurrentUser();
-                            setUser(user.getUid());
-                        } else {
-                            setUser(null);
+                            userID = user.getUid();
                         }
                     }
                 }
         );
-        System.out.println(getUser());
-        return getUser();
+        return userID;
     }
 
-    private void setUser(String user_id){
-        this.userID = user_id;
-    }
 
-    private String getUser(){
-        return this.userID;
-    }
 
 
 

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group>
+        <item
+            android:id="@+id/qr_code"
+            android:title="QR Code"/>
+
+        <item
+            android:id="@+id/edit_profile"
+            android:title="Edit Profile"/>
+
+        <item
+            android:id="@+id/account_management"
+            android:title="Account Management"/>
+    </group>
+</menu>
