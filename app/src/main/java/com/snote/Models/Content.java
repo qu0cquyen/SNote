@@ -6,6 +6,8 @@ public class Content {
     private String author;
     private String description;
 
+    public Content(){}
+
     public Content(String title, String author, String description){
         this.title = title;
         this.author = author;

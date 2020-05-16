@@ -4,7 +4,8 @@ import android.annotation.SuppressLint;
 import android.os.AsyncTask;
 
 import com.snote.Models.Content;
-import com.snote.Repositories.ContentRepository;
+import com.snote.Models.User;
+import com.snote.Repositories.HomeRepository;
 
 import java.util.List;
 
@@ -14,14 +15,14 @@ import androidx.lifecycle.ViewModel;
 
 public class HomeViewModels extends ViewModel {
     private MutableLiveData<List<Content>> mContents;
-    private ContentRepository mContentRepo;
+    private HomeRepository mContentRepo;
     private MutableLiveData<Boolean> mIsUpdating = new MutableLiveData<>();
 
     public void init(){
         if(mContents != null){
             return;
         }
-        mContentRepo = ContentRepository.getInstance();
+        mContentRepo = HomeRepository.getInstance();
         mContents = mContentRepo.getContents();
     }
 
@@ -39,6 +40,13 @@ public class HomeViewModels extends ViewModel {
     public LiveData<Boolean> getIsUpdating(){
         return mIsUpdating;
     }
+
+    public LiveData<User> getUserInfo(String uid){
+        MutableLiveData<User> mUserInfo = mContentRepo.getUserInfo(uid);
+
+        return mUserInfo;
+    }
+
 
     @SuppressLint("StaticFieldLeak")
     class AsyncTaskRunner extends AsyncTask<Content, Content, Content>{

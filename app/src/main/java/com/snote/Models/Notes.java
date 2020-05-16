@@ -1,15 +1,17 @@
 package com.snote.Models;
 
 public class Notes {
-    private String noteID;
+    private String noteid;
     private String content;
     private String contentImage;
     private String description;
     private String title;
     private int view;
 
+    public Notes(){}
+
     public Notes(String note_id, String c, String content_image, String des, String t, int v){
-        this.noteID = note_id;
+        this.noteid = note_id;
         this.content = c;
         this.contentImage = content_image;
         this.description = des;
@@ -17,14 +19,13 @@ public class Notes {
         this.view = v;
     }
 
-    public String getNoteID() {
-        return noteID;
+    public String getNoteid() {
+        return noteid;
     }
 
-    public void setNoteID(String noteID) {
-        this.noteID = noteID;
+    public void setNoteid(String noteid) {
+        this.noteid = noteid;
     }
-
 
     public String getContentImage() {
         return contentImage;
@@ -66,4 +67,6 @@ public class Notes {
     public void setView(int view) {
         this.view = view;
     }
+
+
 }
